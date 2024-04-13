@@ -64,11 +64,37 @@
             </div>
           </div>
         </form>
-
-        <button type="submit" class="btn btn-success mt-5">GOTTT IT</button>
+        <label for="reduceLifeButton" class="form-label">Life: <span id="lifeCount">5</span></label>
+        <br>
+        <button type="submit" id="reduceLifeButton"  class="btn btn-success mt-5">GOTTT IT</button>
       </div>
     </div>
   </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let lifeCount = 5;
+      const lifeDisplay = document.getElementById("lifeCount");
+      const buzzerSound = new Audio("../static/buzzer.mp3");
+
+      function updateLifeDisplay() {
+        lifeDisplay.textContent = lifeCount;
+      }
+
+      function handleButtonClick() {
+        if (lifeCount > 0) {
+          lifeCount--;
+          updateLifeDisplay();
+          buzzerSound.play();
+        }
+      }
+
+      const button = document.getElementById("reduceLifeButton");
+      button.addEventListener("click", handleButtonClick);
+  
+      updateLifeDisplay();
+    });
+  </script>
+  
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
