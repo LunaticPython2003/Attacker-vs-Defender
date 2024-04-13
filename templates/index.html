@@ -81,7 +81,6 @@
     document.addEventListener("DOMContentLoaded", function () {
       let lifeCount = 5;
       const lifeDisplay = document.getElementById("lifeCount");
-      const buzzerSound = new Audio("../static/buzzer.mp3");
 
       function updateLifeDisplay() {
         lifeDisplay.textContent = lifeCount;
@@ -91,7 +90,6 @@
         if (lifeCount > 0) {
           lifeCount--;
           updateLifeDisplay();
-          buzzerSound.play();
         }
       }
 
