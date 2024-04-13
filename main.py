@@ -14,5 +14,9 @@ def secret():
         print(f"Received secret key: {secret_key}")
         return "GOTCHA"
 
+@app.route('/winner', methods=['GET'])
+def winner():
+    return render_template("winner.html")
+
 if __name__ == '__main__':
     app.run(debug=True)
